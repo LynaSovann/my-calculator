@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+$darkPurple: #3F3B6C;
+$purple: #624F82;
+$lightPurple: #9F73AB;
+$sky: #A3C7D6;
+
+@mixin flexCenter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body {
+    padding: 20px;
+    width: 100%;
+    height: 100vh;
+    background-color: $sky;
+    @include flexCenter();
+    .container {
+        background-color: $darkPurple;
+        border-radius: 5px;
+        box-shadow: 0 2px 8px $purple;
+        padding: 20px;
+        position: relative;
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: $sky;
+        }
+        .input-btn {
+            width: 100%;
+            input {
+                font-size: 16px;
+                padding: 10px;
+                border-radius: 5px;
+                border: 2px solid $sky;
+                outline: none;
+                background-color: transparent;
+                color: $sky;
+            }
+        }
+        #clear {
+            cursor: pointer;
+            font-size: 14px;
+            background-color: #820000;
+            border: none;
+            font-weight: bolder;
+            padding: 5px 20px;
+            border-radius: 5px;
+            color: $sky;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .button-container {
+            margin-top: 20px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .btn {
+                button {
+                    font-size: 16px;
+                    padding: 10px;
+                    border-radius: 5px;
+                    border: none;
+                    margin-right: 5px;
+                    font-weight: bolder;
+                    background-color: transparent;
+                    box-shadow: $sky 3px 7px 0px 0px inset, $darkPurple -3px -3px 6px 1px inset;
+                    color: $sky;
+                    border-bottom: solid $sky 1px;
+                    border-right: solid $sky 1px;
+                    cursor: pointer;
+                    transition: .3s ease-in-out;
+                    &:hover {
+                        box-shadow: $sky 1px 1px 0px 0px inset, $darkPurple -3px -3px 6px 1px inset;
+                    }
+                    &:active {
+                        transform: scale(.7);
+                    }
+                }
+            }
+            p {
+                color: $sky;
+                font-weight: bold;
+            }   
+        }
+    }
+}
+
+@media (max-width: 510px) {
+    body {
+        .container {
+            .input-btn {
+                input {
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .button-container {
+        flex-direction: column;
+    }
+}
